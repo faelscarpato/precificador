@@ -31,7 +31,7 @@ interface SavedScenario {
 }
 
 const HISTORY_KEY = "profit-navigator-history-v2";
-const VERIFICADOR_CNPJ_URL = "https://precificador-8ks.pages.dev/";
+const VERIFICADOR_CNPJ_URL = "https://bomcnpj.faelscarpato.workers.dev/";
 const brl = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
 
 const tabs: Array<{ id: TabId; label: string }> = [
