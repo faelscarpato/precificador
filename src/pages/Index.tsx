@@ -1,12 +1,13 @@
-import { ArrowUpRight, Blocks, Calculator, Files, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, Calculator } from "lucide-react";
+import { PwaInstallBar } from "@/components/PwaInstallBar";
 import { PricingCalculator } from "@/components/PricingCalculator";
 
-const VERIFICADOR_CNPJ_URL = "https://bomcnpj.faelscarpato.workers.dev";
+const VERIFICADOR_CNPJ_URL = "https://bomcnpj.faelscarpato.workers.dev/";
 
 const topMenu = [
   { label: "Calculadora", href: "#workspace" },
   { label: "Governanca", href: "#governanca" },
-  { label: "Verificador CNPJ", href: "https://bomcnpj.faelscarpato.workers.dev" },
+  { label: "Verificador CNPJ", href: "https://bomcnpj.faelscarpato.workers.dev/" },
 ];
 
 const Index = () => {
@@ -52,19 +53,20 @@ const Index = () => {
           </div>
         </header>
 
-        <section id="workspace" className="space-y-4">
-         
-
-          <PricingCalculator />
+        <section className="mb-6">
+          <PwaInstallBar />
         </section>
 
-        <footer
+        <section id="workspace" className="space-y-4">
+          <PricingCalculator />
+        </section>
+        <section
           id="governanca"
-          className="mt-8 grid gap-4 text-sm text-muted-foreground sm:grid-cols-2 xl:grid-cols-3"
+          className="mt-8 rounded-[28px] border border-border/40 bg-card/40 px-5 py-4 text-sm text-muted-foreground"
         >
-          
-
-        </footer>
+          O Profit agora funciona como webapp instalavel. Em Windows, use Edge ou Chrome para
+          instalar. Em Android, use "Adicionar a tela inicial" ou o prompt nativo do navegador.
+        </section>
       </div>
     </div>
   );
