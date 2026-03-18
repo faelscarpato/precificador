@@ -1,12 +1,12 @@
 import { ArrowUpRight, Blocks, Calculator, Files, ShieldCheck } from "lucide-react";
 import { PricingCalculator } from "@/components/PricingCalculator";
 
-const VERIFICADOR_CNPJ_URL = "https://verificador-cnpj.vercel.app";
+const VERIFICADOR_CNPJ_URL = "https://bomcnpj.faelscarpato.workers.dev";
 
 const topMenu = [
   { label: "Calculadora", href: "#workspace" },
   { label: "Governanca", href: "#governanca" },
-  { label: "Verificador CNPJ", href: "https://verificador-cnpj.vercel.app" },
+  { label: "Verificador CNPJ", href: "https://bomcnpj.faelscarpato.workers.dev" },
 ];
 
 const Index = () => {
