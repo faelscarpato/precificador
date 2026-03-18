@@ -1,0 +1,13 @@
+{
+  "name": "profit-navigator-2026-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Servidor MCP para expor calculos do Profit Navigator 2026.",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0"
+  }
+}

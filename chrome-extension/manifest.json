@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Profit Navigator 2026",
+  "version": "1.1.0",
+  "description": "Calculadora tributaria de precificacao com foco em MEI, Simples e Lucro Presumido.",
+  "icons": {
+    "16": "16x16.png",
+    "32": "32x32.png",
+    "48": "48x48.png",
+    "128": "128x128.png"
+  },
+  "permissions": ["sidePanel"],
+  "action": {
+    "default_title": "Profit Navigator 2026",
+    "default_icon": {
+      "16": "16x16.png",
+      "32": "32x32.png",
+      "48": "48x48.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "popup.html"
+  }
+}

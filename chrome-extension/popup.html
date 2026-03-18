@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profit Navigator 2026</title>
+    <link rel="icon" type="image/png" href="32x32.png" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <img class="hero-icon" src="icone.png" alt="Profit Navigator 2026" />
+          <div>
+            <div class="badge">Side Panel</div>
+            <h1>Profit Navigator</h1>
+            <p>Ferramenta rapida de precificacao, base tributaria e leitura de NF-e.</p>
+          </div>
+        </div>
+        <a
+          class="shortcut"
+          href="https://verificador-cnpj.vercel.app"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Verificador CNPJ
+        </a>
+      </header>
+
+      <nav class="tabs">
+        <button class="tab active" data-tab="pricing">Precificacao</button>
+        <button class="tab" data-tab="mei">MEI</button>
+        <button class="tab" data-tab="base">CBS/IS</button>
+        <button class="tab" data-tab="nfe">NF-e</button>
+      </nav>
+
+      <section class="panel active" data-panel="pricing">
+        <div class="grid">
+          <label>
+            Regime
+            <select id="regime">
+              <option value="mei">MEI</option>
+              <option value="simples">Simples Nacional</option>
+              <option value="presumido">Lucro Presumido</option>
+            </select>
+          </label>
+          <label>
+            Canal
+            <select id="marketplace"></select>
+          </label>
+          <label>
+            Custo produto
+            <input id="custoProduto" type="number" value="55" step="0.01" />
+          </label>
+          <label>
+            Frete/captacao
+            <input id="custoFrete" type="number" value="8" step="0.01" />
+          </label>
+          <label>
+            Custos extras
+            <input id="custoFixoExtra" type="number" value="5" step="0.01" />
+          </label>
+          <label>
+            Margem %
+            <input id="margemDesejada" type="number" value="20" step="0.1" />
+          </label>
+          <label>
+            Taxa canal %
+            <input id="taxaMarketplace" type="number" value="16" step="0.1" />
+          </label>
+          <label>
+            Faturamento 12m
+            <input id="faturamento12m" type="number" value="360000" step="1000" />
+          </label>
+          <label>
+            Categoria MEI
+            <select id="meiCategoria"></select>
+          </label>
+          <label>
+            Vendas mes
+            <input id="vendasMensais" type="number" value="120" step="1" />
+          </label>
+          <label>
+            UF origem
+            <select id="ufOrigem"></select>
+          </label>
+          <label>
+            UF destino
+            <select id="ufDestino"></select>
+          </label>
+        </div>
+
+        <label class="switch-row">
+          <input id="incluirIva" type="checkbox" checked />
+          <span>Incluir CBS 0,9% + IBS 0,1% na simulacao</span>
+        </label>
+
+        <div class="results">
+          <article class="metric strong">
+            <span>Preco de venda</span>
+            <strong id="precoVenda">R$ 0,00</strong>
+          </article>
+          <article class="metric">
+            <span>Lucro liquido</span>
+            <strong id="lucroLiquido">R$ 0,00</strong>
+          </article>
+          <article class="metric">
+            <span>Imposto total</span>
+            <strong id="impostoTotal">R$ 0,00</strong>
+          </article>
+          <article class="metric">
+            <span>DAS por venda</span>
+            <strong id="dasPorVenda">R$ 0,00</strong>
+          </article>
+        </div>
+
+        <div class="callout">
+          <div class="label">Formula</div>
+          <div id="formula"></div>
+        </div>
+
+        <div class="table-card">
+          <div class="label">Explicacao do preco</div>
+          <div id="breakdown"></div>
+        </div>
+      </section>
+
+      <section class="panel" data-panel="mei">
+        <div class="table-card">
+          <div class="label">Base do imposto fixo</div>
+          <div id="meiExplain"></div>
+        </div>
+        <div class="table-card">
+          <div class="label">Tabela MEI 2026</div>
+          <div id="meiList"></div>
+        </div>
+      </section>
+
+      <section class="panel" data-panel="base">
+        <div class="grid">
+          <label>
+            Valor fornecimento
+            <input id="cibsValor" type="number" value="1000" step="0.01" />
+          </label>
+          <label>
+            Descontos condicionais
+            <input id="cibsDescontos" type="number" value="0" step="0.01" />
+          </label>
+          <label>
+            ICMS
+            <input id="cibsIcms" type="number" value="0" step="0.01" />
+          </label>
+          <label>
+            PIS + COFINS
+            <input id="cibsPisCofins" type="number" value="0" step="0.01" />
+          </label>
+          <label>
+            Valor integral cobrado
+            <input id="isValor" type="number" value="1000" step="0.01" />
+          </label>
+          <label>
+            Bonificacao + devolucao
+            <input id="isBonificacao" type="number" value="0" step="0.01" />
+          </label>
+        </div>
+        <div class="results single">
+          <article class="metric strong">
+            <span>Base CBS / IBS</span>
+            <strong id="cibsBase">R$ 0,00</strong>
+          </article>
+          <article class="metric">
+            <span>Base Imposto Seletivo</span>
+            <strong id="isBase">R$ 0,00</strong>
+          </article>
+        </div>
+        <div class="table-card">
+          <div class="label">Memoria tecnica</div>
+          <div id="baseExplain"></div>
+        </div>
+      </section>
+
+      <section class="panel" data-panel="nfe">
+        <label>
+          Chave de acesso
+          <input id="nfeKey" type="text" maxlength="44" placeholder="Cole a chave de 44 digitos" />
+        </label>
+        <div class="table-card">
+          <div class="label">Leitura da chave</div>
+          <div id="nfeResult"></div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

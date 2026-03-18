@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 6%;
+    --foreground: 60 10% 92%;
+
+    --card: 220 18% 10%;
+    --card-foreground: 60 10% 92%;
+
+    --popover: 220 18% 10%;
+    --popover-foreground: 60 10% 92%;
+
+    --primary: 142 60% 45%;
+    --primary-foreground: 220 20% 6%;
+
+    --secondary: 220 16% 16%;
+    --secondary-foreground: 60 10% 85%;
+
+    --muted: 220 14% 14%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 38 92% 55%;
+    --accent-foreground: 220 20% 6%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 60 10% 95%;
+
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 142 60% 45%;
+
+    --radius: 0.75rem;
+
+    --chart-green: 142 60% 45%;
+    --chart-amber: 38 92% 55%;
+    --chart-red: 0 72% 55%;
+    --chart-blue: 210 80% 55%;
+    --chart-purple: 270 60% 60%;
+
+    --glow-primary: 0 0 20px hsl(142 60% 45% / 0.15);
+    --glow-accent: 0 0 20px hsl(38 92% 55% / 0.15);
+
+    --sidebar-background: 220 18% 8%;
+    --sidebar-foreground: 60 10% 85%;
+    --sidebar-primary: 142 60% 45%;
+    --sidebar-primary-foreground: 220 20% 6%;
+    --sidebar-accent: 220 14% 14%;
+    --sidebar-accent-foreground: 60 10% 85%;
+    --sidebar-border: 220 14% 18%;
+    --sidebar-ring: 142 60% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/60 shadow-lg;
+  }
+
+  .glow-green {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-amber {
+    box-shadow: var(--glow-accent);
+  }
+
+  .gradient-text-green {
+    @apply bg-gradient-to-r from-primary to-emerald-300 bg-clip-text text-transparent;
+  }
+
+  .gradient-text-amber {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--accent)), hsl(38 80% 70%));
+  }
+
+  .stat-value {
+    @apply font-mono text-2xl font-bold tracking-tight;
+  }
+
+  .terminal-bg {
+    background: linear-gradient(180deg, hsl(220 20% 6%) 0%, hsl(220 22% 4%) 100%);
+  }
+
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(220 14% 18% / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(220 14% 18% / 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
