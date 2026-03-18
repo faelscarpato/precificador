@@ -2,6 +2,7 @@
   "name": "profit-navigator-2026",
   "private": true,
   "version": "0.0.0",
+  "packageManager": "npm@10.9.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
